@@ -361,7 +361,7 @@ chmod +x ${DEB_ROOTFS}/usr/sbin/policy-rc.d
 
 LC_ALL=C LANGUAGE=C LANG=C chroot ${DEB_ROOTFS} apt-get update
 LC_ALL=C LANGUAGE=C LANG=C chroot ${DEB_ROOTFS} apt-get upgrade 
-LC_ALL=C LANGUAGE=C LANG=C chroot ${DEB_ROOTFS} apt-get -y install git-core binutils ca-certificates nvi locales ntp ssh ssh-client console-common whiptail parted lua5.1 triggerhappy
+LC_ALL=C LANGUAGE=C LANG=C chroot ${DEB_ROOTFS} apt-get -y install git-core binutils ca-certificates nvi locales ntp ssh ssh-client console-common whiptail parted lua5.1 triggerhappy dphys-swapfile
 
 # If we don't delete this, services will never start...
 rm -f ${DEB_ROOTFS}/usr/sbin/policy-rc.d
