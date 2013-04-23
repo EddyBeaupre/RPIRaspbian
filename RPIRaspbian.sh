@@ -103,6 +103,11 @@ promptyn () {
   done
 }
 
+echo "
+RPIRaspbian by Eddy Beaupre.
+----------------------------
+"
+
 if [ $EUID -ne 0 ]; then
   showState "this tool must be run as root"
   exit 1
