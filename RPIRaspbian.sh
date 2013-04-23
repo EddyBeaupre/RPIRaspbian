@@ -376,6 +376,15 @@ chmod +x ${DEB_ROOTFS}/usr/bin/rpi-update
 mkdir -p ${DEB_ROOTFS}/lib/modules
 LC_ALL=C LANGUAGE=C LANG=C chroot ${DEB_ROOTFS} rpi-update
 
+cat > ${DEB_ROOTFS}/etc/ld.so.conf.d/raspi-vc.conf <<EOF
+# Libraries needed for Raspberry-PI
+/opt/vc/lib
+EOF
+
+cat > ${DEB_ROOTFS}/etc/profile.d/raspi-path.sh <<EOF
+PATH=/opt/vc/bin:/opt/vc/sbin:\$PATH
+EOF
+
 showState "Configuring locales and timezone"
 LC_ALL=C LANGUAGE=C LANG=C chroot ${DEB_ROOTFS} dpkg-reconfigure locales tzdata
 
