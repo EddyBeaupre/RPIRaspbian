@@ -380,7 +380,10 @@ showState "Configuring locales and timezone"
 LC_ALL=C LANGUAGE=C LANG=C chroot ${DEB_ROOTFS} dpkg-reconfigure locales tzdata
 
 showState "Setting up root password for ${DEB_HOSTNAME}"
-LC_ALL=C LANGUAGE=C LANG=C chroot ${DEB_ROOTFS} echo "root:${DEB_PASSWORD}" | chpasswd
+cat | LC_ALL=C LANGUAGE=C LANG=C chroot ${DEB_ROOTFS} passwd <<EOF
+${DEB_PASSWORD}
+${DEB_PASSWORD}
+EOF
 
 showState "Cleaning up"
 LANG=C chroot ${DEB_ROOTFS} aptitude update
