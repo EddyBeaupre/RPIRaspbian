@@ -1,3 +1,8 @@
+WARNING
+=======
+
+This script is no longer maintained, its functionalities have been merge into armStrap. for more information please go to https://github.com/EddyBeaupre/armStrap
+
 RPIRaspbian
 ===========
 
